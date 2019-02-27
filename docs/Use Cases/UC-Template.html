@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UC Template</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="bootstrapConverter.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+	@media print {
+		.row{
+			page-break-inside: avoid;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="mycol-1"></div>
+<div class="content mycol-10">
+	<h1>Use case description</h1>
+	<div class="row">
+		<label class="field-key mycol-6">Use case name &#58;</label> 
+		<span class="field-value mycol-6">NAME</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Primary Actor &#58;</label> 
+		<span class="field-value mycol-6">
+			<span class="field-sbj">ACTOR</span>
+			<span class="sbj-motivation">BECAUSE OF...</span>
+		</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Stake-holders and Interests &#58;</label> 
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="field-sbj">ALT ACTOR 1</span>
+				<span class="sbj-motivation">FOR REASON 1</span>
+			</li>
+			<li>
+				<span class="field-sbj">ALT ACTOR 2</span>
+				<span class="sbj-motivation">FOR REASON 2</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Preconditions &#58;</label>
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="field-sbj">ACTOR 1</span>
+				<span class="sbj-motivation">HAS SOMETHING</span>
+			</li>
+			<li>
+				<span class="field-sbj"></span>
+				<span class="sbj-motivation">[...]</span>
+			</li>
+			<li>
+				<span class="field-sbj">ACTOR N</span>
+				<span class="sbj-motivation">HAS SOMETHING</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Success Guarantee (Postconditions) &#58;</label>
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="field-sbj">ACTOR 1</span>
+				<span class="sbj-motivation">HAS SOMETHING</span>
+			</li>
+			<li>
+				<span class="field-sbj"></span>
+				<span class="sbj-motivation">[...]</span>
+			</li>
+			<li>
+				<span class="field-sbj">ACTOR N</span>
+				<span class="sbj-motivation">HAS SOMETHING</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-12 double-cleared">Main Success Scenario (Basic Flow) &#58;</label>
+		<span class="mycol-2 padder"> </span>
+		<ol class="field-value mycol-8">
+			<li id="Resmp-Id">
+				<span class="field-sbj">SUBJECT</span>
+				<span class="sbj-motivation"> DOES THIS</span>
+				<span class="comment row">Comment</span>
+				<span class="flow-deflection row"><a href="#Defl-Id">Deflection Here</a></span>
+			</li>
+		</ol>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-12 double-cleared">Extensions (Alternative Flows)</label>
+		<span class="mycol-2 padder"></span>
+		<div class="mycol-10 curt">
+			<div class="specific-deflections curt deflection-section">
+				<ul class="field-value" id="Defl-Id">
+					<li>
+						<span class="row">
+							<span class="interrupted-point">2</span>
+							<span class="interruption-variant">a</span>
+							<span class="trigger-event">SOME EVENT</span>
+						</span>
+						<ol class="deflection">
+							<li>
+								<span class="field-sbj">ALT SUBJECT</span>
+								<span class="sbj-motivation">DOES SOMETHING ELSE</span>
+							</li>
+						</ol>
+						<span class="comment row">Comment here</span>
+						<span class="resumption-point row"><a href="#Resmp-Id">Resume Here</a></span>
+					</li>
+				</ul>
+			</div>
+			<div class="generic-deflections deflection-section">
+				<ul class="field-value">
+					<li>
+						<span>
+							<span>&#42;</span>
+							<span class="trigger-event">SOME EVENT</span>
+						</span>
+						<ol class="deflection">
+							<li>
+								<span class="field-sbj">ALT SUBJECT</span>
+								<span class="sbj-motivation">DOES...</span>
+							</li>
+						</ol>
+						<span class="comment">Comment here</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Special Requirements &#58;</label>
+		<ul class="field-value mycol-6">
+			<li class="special-requirement">EFFICIENCY</li>
+			<li class="special-requirement">[...]</li>
+			<li class="special-requirement">TECHNOLOGICAL STANDARD</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Frequency of Occurrence &#58;</label>
+		<span class="field-value mycol-6">[NEVER,SOMETIMES,ALWAYS]</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Open Issues &#58;</label>
+		<ul class="field-value mycol-6">
+			<li class="issue">ISSUE 1</li>
+			<li class="issue">[...]</li>
+			<li class="issue">ISSUE N</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

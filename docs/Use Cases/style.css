@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body {
+	font-size: 1.75em;
+}
+
+.field-key {
+	text-decoration: underline;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+.comment {
+	font-style: oblique;
+	color: grey;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+label.double-cleared {
+	display: block;
+	clear: both;
+}
+
+.padder {
+	display: block;
+	padding: 1px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+div.curt {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+.field-sbj {
+	color: blue;
+}
+
+.flow-deflection {
+	padding-left: 1em;
+}
+
+ul {
+	/*list-style-type: none;*/
+	
+}
+
+.deflection-section ul li {
+	position: relative;
+	left: -1.5em;
+}
+
+.trigger-event {
+	color: green;
+}
+
+span.row {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.defl2 {
+	position: relative;
+	left: 4em;
+}
+
+.loop {
+	position: relative;
+	padding-left: 1em;
+	border-left: solid black 1px;
+}
+
+.loop li {
+	position: relative;
+	left: 1em;
+}
+
+li.loop {
+	position: relative;
+	left: -0.2em;
+	margin-left: 0px;
+	padding-left: 1em;
+	list-style-position: inside;
+}
+/*
+:not(li.loop)+li.loop::before{
+	content : "Loop :";
+	color : red;
+	position:relative;
+}
+*/
+
+.parameter {
+	color : red;
+	text-decoration: underline;
+}

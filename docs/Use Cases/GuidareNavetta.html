@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Corsa</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="bootstrapConverter.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+@media print {
+	.row {
+		page-break-inside: avoid;
+	}
+}
+</style>
+</head>
+<body>
+	<div class="mycol-1"></div>
+	<div class="content mycol-10">
+		<h1>Use case description</h1>
+		<div class="row">
+			<label class="field-key mycol-6">Use case name &#58;</label> <span
+				class="field-value mycol-6">Guidare Navetta</span>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Primary Actor &#58;</label> <span
+				class="field-value mycol-6"> <span class="field-sbj">Autista</span>
+				<span class="sbj-motivation">vuole essere notificato delle
+					prenotazioni per conoscere le fermate da effettuare. Deve
+					obliterare i biglietti</span>
+			</span>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Stake-holders and Interests
+				&#58;</label>
+			<ul class="field-value mycol-6">
+				<li><span class="field-sbj">Studente</span> <span
+					class="sbj-motivation">vuole usufruire del servizio navetta
+						obliterando il biglietto, quando richiesto</span></li>
+				<li><span class="field-sbj">Sistema</span> <span
+					class="sbj-motivation">vuole tenere traccia dello stato
+						delle prenotazioni</span></li>
+			</ul>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Preconditions &#58;</label>
+			<ul class="field-value mycol-6">
+				<li><span class="comment">Nessuna</span></li>
+
+
+			</ul>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Success Guarantee
+				(Postconditions) &#58;</label>
+			<ul class="field-value mycol-6">
+				<li><span class="field-sbj">Autista</span> <span
+					class="sbj-motivation">ha finito il suo turno</span></li>
+			</ul>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-12 double-cleared">Main Success
+				Scenario (Basic Flow) &#58;</label>
+			<div class="row">
+				<span class="mycol-2 padder"> </span>
+				<ol class="field-value mycol-8 loop">
+					<li id="start-point">L&#39;<span class="field-sbj">Autista</span>
+						<span class="sbj-motivation"> arriva al capolinea e sale
+							sulla navetta</span> <span class="comment row"></span>
+					</li>
+					<li id="accedi-sistema">L&#39;<span class="field-sbj">Autista</span>
+						<span class="sbj-motivation"> accede al <span
+							class="field-sbj">Sistema</span></span> <span class="comment row">Accede
+							all&#39;home page o apre l&#39;app etc.</span>
+					</li>
+					<li id="inserisci-credenziali">L&#39;<span class="field-sbj">Autista</span>
+						<span class="sbj-motivation"> fornisce le credenziali
+							personali </span>
+					</li>
+					<li id="verifica-credenziali">Il <span class="field-sbj">Sistema</span>
+						<span class="sbj-motivation"> verifica le credenziali
+							dell&#39;<span class="field-sbj">Autista</span>
+					</span>
+					</li>
+					<li id="vai-home">L&#39;<span class="field-sbj">Autista</span>
+						<span class="sbj-motivation"> ottiene le informazioni
+							personali relative al <span class="field-sbj">Sistema</span>
+					</span>
+					</li>
+					<section class="loop">
+						<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+							class="sbj-motivation"> richiede al <span
+								class="field-sbj">Sistema</span> la prossima fermata tra quelle
+								indicate tra le fermate di partenza delle prenotazioni
+						</span>
+						</li>
+
+						<li id="">Il <span class="field-sbj">Sistema</span> <span
+							class="sbj-motivation"> indica all&#39;<span
+								class="field-sbj">Autista</span> la prossima fermata
+						</span>
+						</li>
+
+						<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+							class="sbj-motivation"> raggiunge la fermata indicata </span>
+						</li>
+
+						<li class="loop" id="studente-sale">Uno <span
+							class="field-sbj">Studente</span> <span class="sbj-motivation">sale
+								sulla navetta <span class="field-sbj"></span>
+						</span>
+						</li>
+						<li class="loop" id="autista-oblitera">L&#39;<span
+							class="field-sbj">Autista</span> <span class="sbj-motivation">
+								oblitera il biglietto dello studente<span class="field-sbj"></span>
+						</span>
+						</li>
+						<li class="loop" id="autista-trasmette-biglietto">L&#39;<span
+							class="field-sbj">Autista</span> <span class="sbj-motivation">
+								comunica i dati del biglietto al <span class="field-sbj">Sistema</span>
+						</span>
+						</li>
+						<li class="loop" id="sistema-verifica-biglietto">Il <span
+							class="field-sbj">Sistema</span> <span class="sbj-motivation">
+								verifica il biglietto<span class="field-sbj"></span>
+						</span>
+						</li>
+						<li class="loop" id="sistema-convalida-biglietto">Il <span
+							class="field-sbj">Sistema</span> <span class="sbj-motivation">
+								comunica all&#39;<span class="field-sbj">Autista</span> la
+								validit&aacute; del biglietto, che a sua volta lo comunica allo
+								<span class="field-sbj">Studente</span>
+						</span>
+						</li>
+						<li class="loop" id="studente-siede">Lo <span
+							class="field-sbj">Studente</span> <span class="sbj-motivation">si
+								siede al posto prenotato <span class="field-sbj"></span>
+						</span> <span class="comment row">Si ripetono questi passi
+								finch&eacute; ci sono persone alla fermata</span>
+						</li>
+						<li id="">Il <span class="field-sbj">Sistema</span> <span
+							class="sbj-motivation"> controlla che non ci siano <span
+								class="field-sbj">Studenti</span> che hanno effettuato una
+								prenotazione e non hanno obliterato il biglietto
+						</span>
+						</li>
+						<li id="">Il <span class="field-sbj">Sistema</span> <span
+							class="sbj-motivation">comunica all&#39;<span
+								class="field-sbj">Autista</span> la prima fermata di
+								destinazione tra quelle indicate sui biglietti obliterati
+								precedentemente
+						</span> <span class="comment row"></span>
+						</li>
+						<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+							class="sbj-motivation">raggiunge la fermata indicata </span> <span
+							class="comment row"></span>
+						</li>
+						<li class="loop" id="">L&#39;<span class="field-sbj">Autista</span>
+							<span class="sbj-motivation">oblitera il biglietto in
+								uscita </span> <span class="comment row"></span>
+						</li>
+						<li class="loop" id="">L&#39;<span class="field-sbj">Autista</span>
+							<span class="sbj-motivation"> comunica al <span
+								class="field-sbj">Sistema</span> i dati relativi al biglietto
+						</span> <span class="comment row"></span>
+						</li>
+						<li class="loop" id="">Il <span class="field-sbj">Sistema</span>
+							<span class="sbj-motivation"> verifica la coerenza tra la
+								fermata indicata come destinazione sul biglietto e quella
+								corrente </span> <span class="comment row"></span>
+						</li>
+						<li class="loop" id="">Il <span class="field-sbj">Sistema</span>
+							<span class="sbj-motivation"> comunica all&#39;<span
+								class="field-sbj">Autista</span> la coerenza del biglietto che a
+								sua volta lo comunica allo <span class="field-sbj">Studente</span></span>
+							<span class="comment row"></span>
+						</li>
+						<li class="loop" id="">Il <span class="field-sbj">Sistema</span>
+							<span class="sbj-motivation"> chiede allo <span
+								class="field-sbj">Studente</span> un feedback sulla sua
+								esperienza
+						</span> <span class="comment row"></span>
+						</li>
+						<li class="loop" id="">Lo <span class="field-sbj">Studente</span>
+							<span class="sbj-motivation"> scende dalla navetta </span> <span
+							class="comment row">Si ripetono questi passi finch&eacute;
+								ci sono persone che desiderano scendere</span>
+						</li>
+						
+						<li id="">Il <span class="field-sbj">Sistema</span> <span
+							class="sbj-motivation">verifica che non ci siano persone
+								che avevano indicato che sarebbero scese alla fermata precedente
+								ed avevano obliterato in entrata, ma non hanno obliterato in
+								uscita </span> <span class="comment row"></span>
+						</li>
+						<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+							class="sbj-motivation">lascia la fermata </span> <span
+							class="comment row"></span>
+						</li>
+						<!-- Footer of this section -->
+						<span class="comment">I passi vengono ripetuti
+							finch&eacute; l&#39;autista non ritorna al capolinea</span>
+					</section>
+					<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+						class="sbj-motivation">raggiunge il capolinea </span> <span
+						class="comment row"></span>
+					</li>
+					<li id="">L&#39;<span class="field-sbj">Autista</span> <span
+						class="sbj-motivation"> comunica di aver raggiunto il
+							capolinea al <span class="field-sbj">Sistema</span>
+					</span> <span class="comment row"></span>
+					</li>
+					<li id="">Il <span class="field-sbj">Sistema</span> <span
+						class="sbj-motivation"> aggiorna lo stato delle corse </span> <span
+						class="comment row"></span>
+					</li>
+					<li id="">Il <span class="field-sbj">Sistema</span> <span
+						class="sbj-motivation"> comunica all&#39;<span
+							class="field-sbj">Autista</span> di aver aggiornato con successo
+							lo stato delle corse
+					</span> <span class="comment row">L&#39;autista ripete
+							iterativamente i passi per tante volte quante sono specificate
+							nel suo contratto</span>
+					</li>
+				</ol>
+			</div>
+			<!--  
+			<div class="row">
+				<div class="mycol-2 padder"></div>
+				<p class="comment mycol-10">L&#39;autista ripete iterativamente i
+					passi per tante volte quante sono specificate nel suo contratto</p>
+			</div>
+			-->
+		</div>
+		<div class="row">
+			<label class="field-key mycol-12 double-cleared">Extensions
+				(Alternative Flows)</label> <span class="mycol-2 padder"></span>
+			<div class="mycol-10 curt">
+				<div class="specific-deflections curt deflection-section">
+					<ul class="field-value" id="Defl-Id">
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">5</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">Le credenziali inserite non sono
+										valide</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation">notifica che le credenziali
+										inserite non sono valide</span></li>
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation">comunica di non voler pi&uacute;
+										effettuare l&#39;accesso per il momento</span></li>
+
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a
+								href="#inserisci-credenziali">Riprende al punto 3</a></span> <!-- Deflection of Deflection -->
+							<div class="defl2">
+								<span class="row trigger-event"> <span
+									class="interrupted-point">5</span> <span
+									class="interruption-variant">a</span> <span
+									class="interrupted-point">::2</span> <span
+									class="interruption-variant">a</span> <span
+									class="event-description">L&#39;<span class="field-sbj">Autista</span>
+										si accorge di aver sbagliato ad inserire le credenziali
+								</span>
+								</span>
+								<ol class="deflection">
+									<li>L&#39;<span class="field-sbj">Autista</span> comunica
+										al <span class="field-sbj">Sistema</span> di voler provare ad
+										inserire nuovamente le credenziali
+									</li>
+								</ol>
+								<span class="resumption-point row"><a
+									href="#inserisci-credenziali">Riprende al punto 3</a></span>
+							</div> <!-- Deflection of Deflection --></li>
+
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">10</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">L&#39;<span class="field-sbj">Autista</span>
+										non riesce ad obliterare il biglietto perch&eacute; lo <span
+										class="field-sbj">Studente</span> non lo possiede, pur avendo
+										prenotato, o perch&eacute; non ha i mezzi per obliterarlo
+								</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation"> acquisisce i dati del biglietto
+										manualmente</span></li>
+
+
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a
+								href="#autista-trasmette-biglietto">Riprende al punto 11</a></span></li>
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">10</span><span
+									class="interruption-variant">b</span> <span
+									class="trigger-event">L&#39;<span class="field-sbj">Autista</span>
+										non riesce ad obliterare il biglietto perch&eacute; lo <span
+										class="field-sbj">Studente</span> non lo possiede
+								</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation"> crea manualmente un biglietto
+										sul momento</span></li>
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation"> comunica la prenotazione al <span
+										class="field-sbj">Sistema</span></span></li>
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> verifica la validit&aacute;
+										della prenotazione</span> <span class="comment row">Anche se
+										l'autista vede che un posto &eacute; libero, questo non
+										significa che fino alla fermata di arrivo non ci siano una o
+										pi&uacute; persone che hanno prenotato quel posto per una
+										determinata tratta</span></li>
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> comunica l&#39;avvenuta
+										prenotazione e registrazione di obliterazione all&#39; <span
+										class="field-sbj">Autista</span> che a sua volta lo comunica
+										allo <span class="field-sbj">Studente</span>
+								</span>
+								</li>
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a href="#studente-siede">Riprende
+									al punto 14</a></span> <!-- Deflection of Deflection -->
+							<div class="defl2">
+								<span class="row trigger-event"> <span
+									class="interrupted-point">10</span> <span
+									class="interruption-variant">b</span> <span
+									class="interrupted-point">::4</span> <span
+									class="interruption-variant">a</span> <span
+									class="event-description">La prenotazione non pu&oacute;
+										essere effettuata </span>
+								</span>
+								<ol class="deflection">
+									<li>Il <span class="field-sbj">Sistema</span> comunica
+										all&#39;<span class="field-sbj">Autista</span> di non poter
+										effettuare la prenotazione che a sua volta lo comunica allo <span
+										class="field-sbj">Studente</span>
+									</li>
+									<li>Lo <span class="field-sbj">Studente</span> comunica
+										all&#39;<span class="field-sbj">Autista</span> dei nuovi
+										parametri per la prenotazione
+									</li>
+								</ol>
+								<span class="resumption-point row"><a href="#">Riprende
+										al punto 10b::1</a></span>
+								<!-- Deflection of Deflection -->
+								<div class="defl2">
+									<span class="row trigger-event"> <span
+										class="interrupted-point">10</span> <span
+										class="interruption-variant">b</span> <span
+										class="interrupted-point">::4</span> <span
+										class="interruption-variant">a</span><span
+										class="interrupted-point">::2</span> <span
+										class="interruption-variant">a</span>
+									</span>
+									<ol class="deflection">
+
+										<li>Lo <span class="field-sbj">Studente</span> comunica
+											all&#39;<span class="field-sbj">Autista</span> di voler
+											rinunciare alla prenotazione
+										</li>
+									</ol>
+									<span class="resumption-point row"><a
+										href="#studente-sale">Riprende al punto 9</a></span>
+								</div>
+								<!-- Deflection of Deflection -->
+							</div> <!-- Deflection of Deflection --></li>
+
+
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">13</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">Il biglietto non risulta valido </span>
+							</span> </span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> comunica all&#39;<span
+										class="field-sbj">Autista</span> che il biglietto non &eacute;
+										valido. Questo a sua volta lo comunica allo <span
+										class="field-sbj">Studente</span></span></li>
+							</ol> <span class="comment row">A questo punto lo studente si
+								trova in una situazione equivalente a non avere il biglietto</span> <span
+							class="resumption-point row"><a href="#">Riprende al
+									punto 10b</a></span></li>
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">16</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">C&#39;&eacute; una prenotazione
+										che non &eacute; stata obliterata </span>
+							</span> </span> <span class="comment row">Gestione del sistema di Ban.
+								Da iterare per ogni studente che rientra in questa casistica</span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> aggiorna il conteggio delle
+										occasioni nelle quali lo <span class="field-sbj">Studente</span>
+										non ha obliterato una prenotazione
+								</span></li>
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> verifica che lo <span
+										class="field-sbj">Studente</span> non abbia superato la soglia
+										<span class="parameter">N</span> di volte per le quali
+										&eacute; permesso non obliterare le prenotazioni
+								</span></li>
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> invia allo <span
+										class="field-sbj">Studente</span> una email per notificargli
+										l&#39; aggiornamento del conteggio relativo al suo profilo
+								</span></li>
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a href="#">Riprende al
+									punto 16</a></span> <!-- Deflection of Deflection -->
+							<div class="defl2">
+								<span class="row trigger-event"> <span
+									class="interrupted-point">16</span> <span
+									class="interruption-variant">a</span> <span
+									class="interrupted-point">::3</span> <span
+									class="interruption-variant">a</span><span
+									class="event-description"> -Il conteggio ha superato il
+										limite </span>
+								</span>
+								<ol class="deflection">
+
+									<li>Il <span class="field-sbj">Sistema</span> invia un
+										email allo <span class="field-sbj">Studente</span> nella quale
+										si comunica che non potr&aacute; pi&uacute; effettuare
+										prenotazioni finch&eacute; non avr&aacute; presentato domanda
+										per essere riabilitato e la domanda non verr&aacute;
+										accettata. Vengono inoltre illustrate le modalit&aacute;
+										possibili per presentare domanda di riabilitazione
+									</li>
+								</ol>
+								<span class="resumption-point row"><a
+									href="#studente-sale">Riprende al punto 16</a></span>
+							</div> <!-- Deflection of Deflection --></li>
+
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">18</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">L&#39;<span class="field-sbj">Autista</span>
+										non riesce ad obliterare l&#39;uscita per il biglietto
+										perch&eacute; lo <span class="field-sbj">Studente</span> non
+										lo possiede, pur avendo prenotato, o perch&eacute; non ha i
+										mezzi per obliterarlo
+								</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation"> acquisisce i dati del biglietto
+										manualmente</span></li>
+
+
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a href="#">Riprende al
+									punto 19</a></span></li>
+
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">21</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">Il <span class="field-sbj">Sistema</span>
+										rileva che lo <span class="field-sbj">Studente</span> serebbe
+										dovuto scendere ad una fermata successiva
+								</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> memorizza che per il rimanente
+										tratto, ovvero fino alla precedente fermata di destinazione
+										dello <span class="field-sbj">Studente</span>, il posto si
+										&eacute; liberato
+								</span></li>
+
+
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a href="#">Riprende al
+									punto 22</a></span></li>
+									
+						<li><span class="trigger-event"><span class="row">
+									<span class="interrupted-point">26</span><span
+									class="interruption-variant">a</span> <span
+									class="trigger-event">Il <span class="field-sbj">Sistema</span>
+										rileva che uno <span class="field-sbj">Studente</span> serebbe
+										dovuto scendere alla corrente fermata, ma non lo ha fatto
+								</span>
+							</span> </span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation"> notifica all&#39;<span class="field-sbj">Autista</span>
+									che uno <span class="field-sbj">Studente</span> che doveva scendere non lo ha fatto
+								</span></li>
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation"> invita lo <span class="field-sbj">Studente</span> a scendere 
+								</span></li>
+
+
+							</ol> <span class="comment row"></span> <span
+							class="resumption-point row"><a href="#">Riprende al
+									punto 18</a></span></li>
+
+					</ul>
+				</div>
+				<div class="generic-deflections deflection-section">
+					<ul class="field-value">
+						<li><span class="trigger-event"> <span>&#42;</span> <span
+								class="event-description">La connessione cade [ed altre
+									fantastiche catastrofi]</span>
+						</span>
+							<ol class="deflection">
+								<li>Il <span class="field-sbj">Sistema</span> <span
+									class="sbj-motivation">notifica l'assenza di connessione</span>
+								</li>
+								<li>L&#39;<span class="field-sbj">Autista</span> <span
+									class="sbj-motivation">accetta</span>
+								</li>
+							</ol> <span class="comment"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Special Requirements &#58;</label>
+			<ul class="field-value mycol-6">
+				<li class="special-requirement comment">Nessuno</li>
+			</ul>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Frequency of Occurrence
+				&#58;</label> <span class="field-value mycol-6">ALWAYS</span>
+		</div>
+		<div class="row">
+			<label class="field-key mycol-6">Open Issues &#58;</label>
+			<ul class="field-value mycol-6">
+				<li class="issue comment">Nessuna</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

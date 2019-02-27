@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+@font-face {
+		font-family : "CustomTimes";
+		src: url('../font/tnr.ttf') format('truetype');
+}
+
+html{
+	background: url("../img/driver-bg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+
+body{
+	font-family: 'CustomTimes', sans-serif;
+	padding-top: 4em;
+	background-color: black;
+	/*
+	background-image: url("../img/driver-bg.jpg");
+	background-repeat: no-repeat;
+	background-origin: padding-box;
+	background-size: 100% 100%;*/
+}
+
+div#actual-position span {
+	color :#feb500;
+	font-size: 2em;
+	margin : 2em;
+	margin-left: 5px;
+	
+	/*border : solid 1px black;*/
+}
+
+div#actual-position {
+	position: relative;
+	top: 2em;
+	text-shadow: 0 0 4px white;
+	
+}
+
+div#next-stop span#next-stop-value {
+	color : #efb9ea;
+	
+	font-style: oblique;
+}
+
+div#map {
+	margin-top: 10%;
+	padding: 0px;
+	border: 5px solid black;
+	overflow: hidden;
+}
+
+div#map>* {
+	margin : 0px;
+	border : 0px;
+	padding:0px;
+	height: 100%;
+	width: 100%;
+}
+
+div#mapid {
+	height : 45em;
+	/*width : 100%;*/
+}

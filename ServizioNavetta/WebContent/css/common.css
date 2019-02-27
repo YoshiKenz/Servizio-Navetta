@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+	padding: 1em;
+	color: white;
+	/*text-transform: uppercase;*/
+}
+
+body {
+	font-family: 'CustomTimes', sans-serif;
+	background-image: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-origin: padding-box;
+}
+
+@font-face {
+	font-family: "CustomTimes";
+	src: url('../font/tnr.ttf') format('truetype');
+}
+
+.error-message {
+	color: red;
+	/*text-transform: uppercase;*/
+}
+
+.register-div {
+	margin-top : 1.5em;
+}

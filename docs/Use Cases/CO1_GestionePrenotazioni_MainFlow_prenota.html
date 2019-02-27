@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CO1::Prenota</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table class="table">
+		<tr class="info">
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+		<tr>
+			<td><strong>Nome &#58;</strong></td>
+			<td>prenota(Partenza,Arrivo,Navetta,Giro)</td>
+		</tr>
+		<tr>
+			<td><strong>Riferimenti &#58;</strong></td>
+			<td>Gestione Prenotazioni</td>
+		</tr>
+		<tr>
+			<td><strong>Pre-condizioni &#58;</strong></td>
+			<td><ul>
+					<li>Il sistema deve conoscere la matricola dello studente che
+						sta effettuando la richiesta. Per questo motivo lo studente dovr&aacute;
+						gi&aacute; essere autenticato</li>
+					<li>Deve esistere un&#39;istanza di Registro prenotazioni
+						riportante la data odierna</li>
+					<li>Deve esistere un&#39;istanza di Linea registro, associata ad
+						un&#39;istanza di Registro attivit&aacute; navette riportante la data
+						odierna, associata ad un autista ed ad una navetta che corrisponda
+						alla navetta indicata dallo studente nella sua prenotazione</li>
+				</ul></td>
+		</tr>
+		<tr>
+			<td><strong>Post-condizioni &#58;</strong></td>
+			<td><ul>
+					<li>Viene creata un&#39;istanza di Prenotazione</li>
+					<li>Viene creata un&#39;associazione tra la nuova Prenotazione
+						e lo Studente prenotante</li>
+					<li>Viene creata un&#39;istanza di Biglietto</li>
+					<li>Viene creata un&#39;associazione tra il nuovo Biglietto e
+						la nuova Prenotazione</li>
+					<li>Viene creata una o pi&uacute; associazioni tra la nuova
+						Prenotazione ed uno o pi&uacute; Tratti di linea</li>
+					<li>Viene creata un&#39;associazione tra la nuova Prenotazione
+						ed il Registro delle Prenotazioni</li>
+					<li>Viene creata un&#39;associazione tra la nuova Prenotazione
+						ed una istanza di Navetta</li>
+				</ul></td>
+		</tr>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CO1::DomandaRiabilitazione</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table class="table">
+		<tr class="info">
+			<th>KEY</th>
+			<th>VALUE</th>
+		</tr>
+		<tr>
+			<td><strong>Nome &#58;</strong></td>
+			<td>effettuaDomandaRiabilitazione()</td>
+		</tr>
+		<tr>
+			<td><strong>Riferimenti &#58;</strong></td>
+			<td>Gestione Prenotazioni</td>
+		</tr>
+		<tr>
+			<td><strong>Pre-condizioni &#58;</strong></td>
+			<td><ul>
+					<li>Il valore di flag attali associati allo studente che sta
+						effettuando la domanda deve essere maggiore del numero limite N di
+						flag tollerabili</li>
+					<li>Il sistema deve conoscere la matricola dello studente che
+						sta effettuando la richiesta. Per questo motivo lo studente
+						dovr&aacute; gi&aacute; essere autenticato</li>
+					<li>Deve esistere almeno un&#39;istanza di Amministratore per
+						potergli recapitare la domanda</li>
+
+				</ul></td>
+		</tr>
+		<tr>
+			<td><strong>Post-condizioni &#58;</strong></td>
+			<td><ul>
+					<li>Viene creata un&#39;istanza di Domanda Riabilitazione</li>
+					<li>Viene creata un&#39;associazione tra la nuova Domanda
+						Riabilitazione e lo Studente richiedente</li>
+					<li>Viene creata un&#39;associazione tra la nuova Domanda e
+						l&#39;Amministratore alla quale &eacute; stata inviata
+						quest&#39;ultima</li>
+				</ul></td>
+		</tr>
+	</table>
+
+</body>
+</html>

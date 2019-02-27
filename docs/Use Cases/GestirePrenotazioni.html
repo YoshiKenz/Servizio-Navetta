@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestire Prenotazioni UC</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="bootstrapConverter.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+	@media print {
+		.row{
+			page-break-inside: avoid;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="mycol-1"></div>
+<div class="content mycol-10">
+	<h1>Use case description</h1>
+	<div class="row">
+		<label class="field-key mycol-6">Use case name &#58;</label> 
+		<span class="field-value mycol-6">Gestire le prenotazioni (Reservation CRUD)</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Primary Actor &#58;</label> 
+		<span class="field-value mycol-6">
+			<span class="field-sbj">Studente</span>
+			<span class="sbj-motivation">vuole agire sulle sue prenotazioni</span>
+		</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Stake-holders and Interests &#58;</label> 
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation">vuole tenere traccia dello stato delle prenotazioni dello <span class="field-sbj">Studente</span></span>
+			</li>
+			<li>
+				<span class="field-sbj">Autista</span>
+				<span class="sbj-motivation">viene notificato in caso di prenotazione di una fermata sulla sua linea</span>
+			</li>
+			<li>
+				<span class="field-sbj">Amministratore di Sistema</span>
+				<span class="sbj-motivation">riceve le domande di riabilitazione</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Preconditions &#58;</label>
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="comment">Nessuna</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Success Guarantee (Postconditions) &#58;</label>
+		<ul class="field-value mycol-6">
+			<li>
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> ha modificato lo stato delle sue prenotazioni</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-12 double-cleared">Main Success Scenario (Basic Flow) &#58;</label>
+		<span class="mycol-2 padder"> </span>
+		<ol class="field-value mycol-8">
+			<li id="accedi-sistema">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> accede al <span class="field-sbj">Sistema</span></span>
+				<span class="comment row">Accede all'home page o apre l'app etc.</span> 
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="inserisci-credenziali">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> fornisce le credenziali personali </span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="verifica-credenziali">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> verifica le credenziali dello <span class="field-sbj">Studente</span></span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="vai-home">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> ottiene le informazioni personali relative al <span class="field-sbj">Sistema</span></span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="avvia-prenotazione">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> richiede di effettuare una prenotazione</span>
+				<span class="comment row">CRUD->create()</span> 
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="verifica-ban">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> verifica che lo studente non sia stato bannato dal sistema</span>
+				<span class="comment row">Dopo N prenotazioni non obliterate, il sistema non permette più allo studente di effettuare prenotazioni</span> 
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-linea">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> fornisce una mappa riportante i dati della rete delle navette</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-linea">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> sceglie una linea, tra quelle indicate su una mappa</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			
+			<li id="scegli-inizio-itinerario">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> sceglie sulla mappa la fermata di partenza del suo itinerario</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-fine-itinerario">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> sceglie sulla mappa la fermata di arrivo del suo itinerario</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-navetta">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> sceglie una navetta sulla linea scelta, selezionandone l'ultima posizione nota che viene indicata sulla mappa</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-posto">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> sceglie un posto sulla navetta, selezionandone uno tra quelli indicati dal <span class="field-sbj">Sistema</span></span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-linea">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> riepiloga le scelte allo <span class="field-sbj">Studente</span></span>
+				<span class="comment row">Schermata di riepilogo e conferma</span> 
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-linea">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> conferma le proprie scelte</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			
+			<li id="valida-scelta">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> verifica la consistenza della richiesta effettuata dallo <span class="field-sbj">Studente</span></span>
+				<span class="comment row">Il timeout per il lock del posto è scaduto ?</span>
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="genera-biglietto">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> genera il biglietto relativo alla prenotazione</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="scegli-linea">Il
+				<span class="field-sbj">Sistema</span>
+				<span class="sbj-motivation"> notifica l&#39;<span class="field-sbj">Autista</span> della navetta relativa alla prenotazione, di fermarsi alla fermata prenotata</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+			<li id="ricevi-biglietto">Lo
+				<span class="field-sbj">Studente</span>
+				<span class="sbj-motivation"> riceve il biglietto dal <span class="field-sbj">Sistema</span> e questo viene memorizzato tra le sue prenotazioni</span>
+				<!-- <span class="comment row">[...]</span> -->
+				<!-- <span class="flow-deflection row"><a href="">[...]</a></span> -->
+			</li>
+		</ol>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-12 double-cleared">Extensions (Alternative Flows)</label>
+		<span class="mycol-2 padder"></span>
+		<div class="mycol-10 curt">
+			<div class="specific-deflections curt deflection-section">
+				<ul class="field-value" id="defl-ban">
+					
+					<li>
+						<span class="row trigger-event">
+							<span class="interrupted-point">4</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Le credenziali non sono valide</span>
+						</span>
+						<ol class="deflection">
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica allo <span class="field-sbj">Studente</span> che le credenziali non sono valide</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> suggerisce allo <span class="field-sbj">Studente</span> la registrazione</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> richiede al <span class="field-sbj">Sistema</span> la domanda di registrazione</span>
+								<span class="comment row">La form di iscrizione</span>
+							</li>
+							
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation">compila la domanda di registrazione</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation">conferma i dati e li invia al <span class="field-sbj">Sistema</span></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation">verifica la consistenza della domanda</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation">memorizza la domanda</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation">notifica l'avvenuta registrazione</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation">conferma di essere stato informato</span>
+							</li>
+						</ol>
+						<span class="comment row"></span>
+						<span class="resumption-point row"><a href="#avvia-prenotazione">Riprende dopo il punto 3</a></span>
+						<!-- Deflection of Deflection -->
+						<div class="defl2">
+						<span class="row trigger-event">
+							<span class="interrupted-point">4</span>
+							<span class="interruption-variant">a</span>
+							<span class="interrupted-point">:: 7</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">La domanda non è consistente </span>
+						</span>
+						<ol class="deflection">
+							<li>Il <span class="field-sbj">Sistema</span> notifica l'inconsistenza della domanda</li>
+						</ol>
+						<span class="resumption-point row"><a href="#">Riprende al punto 4a::4</a></span>
+						</div>
+						<!-- Deflection of Deflection -->
+						<!-- Deflection of Deflection -->
+						<div class="defl2">
+						<span class="row trigger-event">
+							<span class="interrupted-point">4</span>
+							<span class="interruption-variant">a</span>
+							<span class="interrupted-point">:: 3</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Lo <span class="field-sbj">Studente</span> ha sbagliato ad inserire le credenziali</span>
+						</span>
+						<ol class="deflection">
+							<li>Lo <span class="field-sbj">Studente</span> comunica di voler re-inserire le credenziali</li>
+						</ol>
+						<span class="resumption-point row"><a href="#inserisci-credenziali">Riprende dopo il punto 1</a></span>
+						</div>
+						<!-- Deflection of Deflection -->
+					</li>
+					<li>
+						<span class="row trigger-event">
+							<span class="interrupted-point">5</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Lo studente vuole cancellare una prenotazione</span>
+							<span class="comment row">CRUD->delete()</span>
+						</span>
+						<ol class="deflection">
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> indica quale prenotazione vuole cancellare</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> elimina la prenotazione, tra quelle memorizzate</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica allo  <span class="field-sbj">Studente</span> l'avvenuta cancellazione della prenotazione</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica all'<span class="field-sbj">Autista</span> l'avvenuta cancellazione della prenotazione della fermata di partenza e di arrivo</span>
+								<span class="comment row"></span>
+							</li>
+						</ol>
+						<span class="comment row"></span>
+						<span class="resumption-point row"><a href="#">Riprende al punto 4</a></span>
+					</li>
+					<li>
+						<span class="row trigger-event">
+							<span class="interrupted-point">5</span>
+							<span class="interruption-variant">b</span>
+							<span class="event-description">Lo studente vuole aggiornare una prenotazione</span>
+							<span class="comment row">CRUD->update()</span>
+						</span>
+						<ol class="deflection">
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> indica al <span class="field-sbj">Sistema</span> quali valori della prenotazione vuole cambiare</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> indica al <span class="field-sbj">Sistema</span> i nuovi valori</span>
+								<span class="comment row">Iterare i passi 5a::1 e 5a::2 finch&eacute; non si ottiene un risultato soddisfacente</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> conferma gli aggiornamenti alla prenotazione e li comunica al <span class="field-sbj">Sistema</span></span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> verifica la consistenza della prenotazione aggiornata</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> aggiorna la prenotazione precedentemente memorizzata</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> comunica allo <span class="field-sbj">Studente</span> l'avvenuta modifica della prenotazione</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica l'<span class="field-sbj">Autista</span> della navetta relativa alla prenotazione prima l'aggiornamento, della modifica della prenotazione</span>
+								<span class="comment row"></span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica l'<span class="field-sbj">Autista</span> della navetta relativa alla prenotazione dopo l'aggiornamento, della modifica della prenotazione</span>
+								<span class="comment row"></span>
+							</li>
+						</ol>
+						<span class="comment row"></span>
+						<span class="resumption-point row"><a href="#vai-home">Riprende dopo il passo 3</a></span>
+						<!-- Deflection of Deflection -->
+						<div class="defl2">
+						<span class="row trigger-event">
+							<span class="interrupted-point">5</span>
+							<span class="interruption-variant">b</span>
+							<span class="interrupted-point">::5</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Il cambiamento non &eacute; valido</span>
+						</span>
+						<ol class="deflection">
+							<li>Il <span class="field-sbj">Sistema</span> comunica allo <span class="field-sbj">Studente</span> che l'aggioramento non &eacute; valido</li>
+							<li>Lo <span class="field-sbj">Studente</span> accetta </li>
+						</ol>
+						<span class="resumption-point row"><a href="#">Riprende al punto 5b::1</a></span>
+						</div>
+						<!-- Deflection of Deflection -->
+					</li>
+					<li>
+						<span class="row trigger-event">
+							<span class="interrupted-point">6</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Viene rilevato un ban</span>
+						</span>
+						<ol class="deflection">
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica allo <span class="field-sbj">Studente</span> il ban e la motivazione</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> indica allo <span class="field-sbj">Studente</span> le modalità per poter nuovamente effettuare le prenotazioni</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> richiede al <span class="field-sbj">Sistema</span> la domanda per effettuare la riabilitazione</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> fornisce allo <span class="field-sbj">Studente</span> la domanda</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> compila la domanda </span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation"> conferma ed invia la domanda</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> registra la domanda</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> invia un email all' <span class="field-sbj">Amministratore di Sistema</span> con in allegato la domanda dello studente</span>
+							</li>
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica allo <span class="field-sbj">Studente</span> il corretto svolgimento della procedura</span>
+							</li>
+						</ol>
+						<span class="comment row"></span>
+						<span class="resumption-point row"><a href="#scegli-linea">Riprende al punto 4</a></span>
+						<!-- Deflection of Deflection -->
+						<div class="defl2">
+						<span class="row trigger-event">
+							<span class="interrupted-point">6</span>
+							<span class="interruption-variant">a</span>
+							<span class="interrupted-point">::4</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Lo <span class="field-sbj">Studente </span>ha gi&aacute; effettuato la domanda</span>
+						</span>
+						<ol class="deflection">
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation"> notifica allo <span class="field-sbj">Studente</span> che la domanda &eacute; già stata compilata, mostrandone le informazioni relative</span>
+							</li>
+							<li>Lo <span class="field-sbj">Studente</span> comunica di non voler pi&uacute; prenotare al momento</li>
+						</ol>
+						<span class="comment row"></span>
+						<span class="resumption-point row"><a href="#delf-ban">Riprende al punto 6a::1</a></span>
+						</div>
+						<!-- Deflection of Deflection -->
+						<!-- Deflection of Deflection -->
+						<div class="defl2">
+						<span class="row trigger-event">
+							<span class="interrupted-point">6</span>
+							<span class="interruption-variant">a</span>
+							<span class="interrupted-point">::3</span>
+							<span class="interruption-variant">a</span>
+							<span class="event-description">Lo <span class="field-sbj">Studente</span> ha preso visione del ban</span>
+						</span>
+						<ol class="deflection">
+							<li>Lo <span class="field-sbj">Studente</span> comunica di non voler pi&uacute; prenotare al momento</li>
+						</ol>
+						<span class="resumption-point row"><a href="#vai-home">Riprende al punto 4</a></span>
+						</div>
+						<!-- Deflection of Deflection -->
+					</li>
+				</ul>
+			</div>
+			<div class="generic-deflections deflection-section">
+				<ul class="field-value">
+					<li>
+						<span class="trigger-event">
+							<span>&#42;</span>
+							<span class="event-description">La connessione cade [ed altre fantastiche catastrofi]</span>
+						</span>
+						<ol class="deflection">
+							<li>Il
+								<span class="field-sbj">Sistema</span>
+								<span class="sbj-motivation">notifica l'assenza di connessione</span>
+							</li>
+							<li>Lo
+								<span class="field-sbj">Studente</span>
+								<span class="sbj-motivation">accetta</span>
+							</li>
+						</ol>
+						<span class="comment"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Special Requirements &#58;</label>
+		<ul class="field-value mycol-6">
+			<li class="special-requirement">L'<span class="field-sbj">Autista</span> deve essere fornito di un dispositivo con il quale connettersi al sistema, che sia dotato di GPS, Fotocamera e Scheda di rete</li>
+		</ul>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Frequency of Occurrence &#58;</label>
+		<span class="field-value mycol-6">ALWAYS</span>
+	</div>
+	<div class="row">
+		<label class="field-key mycol-6">Open Issues &#58;</label>
+		<ul class="field-value mycol-6">
+			<li class="issue">ISSUE 1</li>
+			<li class="issue">[...]</li>
+			<li class="issue">ISSUE N</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
